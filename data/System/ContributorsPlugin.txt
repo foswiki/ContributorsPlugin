@@ -22,8 +22,8 @@ The simplest way to add topic Contributor information to a topic, is to add =con
    * Set SKIN=contributorsplugin,pattern
 </verbatim>
 
-%INCLUDE{%SYSTEMWEB%.VarCONTRIBUTORS}%
-%INCLUDE{%SYSTEMWEB%.VarSEARCHLOG}%
+%INCLUDE{VarCONTRIBUTORS}%
+%INCLUDE{VarSEARCHLOG}%
 
 __%ICON{alert}% WARNING:__ this plugin will display information from the logs to anyone, so will show the viewer who has done what.
 
