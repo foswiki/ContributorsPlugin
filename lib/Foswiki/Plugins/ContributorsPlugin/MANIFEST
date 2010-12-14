@@ -9,3 +9,7 @@ templates/view.contributorsplugin.tmpl 0644 add contributors to a topic to the b
 #unit tests
 test/unit/ContributorsPlugin/ContributorsPluginTests.pm
 test/unit/ContributorsPlugin/ContributorsPluginSuite.pm
+
+pub/System/ContributorsPlugin/ContributorsPlugin.png
+pub/System/ContributorsPlugin/wikiringlogo20x20.png
+pub/System/ContributorsPlugin/ContributorsSkin.png

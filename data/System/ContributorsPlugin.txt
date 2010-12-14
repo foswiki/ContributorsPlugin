@@ -1,3 +1,5 @@
+
+<img src="%PUBURL%/%WEB%/%TOPIC%/ContributorsPlugin.png" style="float:right;padding:26px" />
 ---+!! !ContributorsPlugin
 <!--
 One line description, required for extensions repository catalog.
@@ -11,6 +13,7 @@ prefer.
 %TOC%
 
 ---++ Usage
+<img src="%PUBURL%/%WEB%/%TOPIC%/ContributorsSkin.png" style="float:right;padding:26px" />
 ---+++ Contributors to a topic
 This plugin can be used to show a list of editors of a page. 
 The simplest way to add topic Contributor information to a topic, is to add =contributorsplugin= to the =SKIN= setting in %USERSWEB%.SitePreferences
@@ -35,16 +38,21 @@ Much credit goes to [[http://webfoot.com][Ducky Sherwood]] for creating the orig
 I've re-implemented it to use more current foswiki practices.
 
 Built in Collaboration with:
-   * [[http://skyloom.com][Skyloom]]
+   * [[http://skyloom.com][Skyloom]] a %PUBURL%/%WEB%/%TOPIC%/wikiringlogo20x20.png [[http://WikiRing.com][WikiRing]] founding partner
 
-|  Author(s): | Foswiki:Main.SvenDowideit |
+|  Author(s): | Foswiki:Main.SvenDowideit - http://fosiki.com a %PUBURL%/%WEB%/%TOPIC%/wikiringlogo20x20.png [[http://WikiRing.com][WikiRing]] founding partner |
 |  Copyright: | 2010 &copy; Sven Dowideit [[http://fosiki.com][fosiki]] |
-|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL 3 (Gnu General Public License)]] |
-|  Release: | %$RELEASE% |
-|  Version: | %$VERSION% |
+|  Icon:      | based on eXperience Crystal, by David Christian Berg |
+|  License:   | [[http://www.gnu.org/licenses/gpl.html][GPL 3 (Gnu General Public License)]] |
+|  Release:   | %$RELEASE% |
+|  Version:   | %$VERSION% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
 |  Dependencies: | %$DEPENDENCIES% |
 |  Home page: | http://foswiki.org/bin/view/Extensions/ContributorsPlugin |
-|  Support: | http://foswiki.org/bin/view/Support/ContributorsPlugin |
+|  Support:   | http://foswiki.org/bin/view/Support/ContributorsPlugin |
 
 <!-- Do _not_ attempt to edit this topic; it is auto-generated. -->
+
+%META:FILEATTACHMENT{name="ContributorsPlugin.png" attr="h" comment="" date="1235112224" path="ContributorsPlugin.png"  version="1"}%
+%META:FILEATTACHMENT{name="ContributorsSkin.png" attr="h" comment="" date="1235112224" path="ContributorsSkin" version="1"}%
+%META:FILEATTACHMENT{name="wikiringlogo20x20.png" attr="h" comment="" date="1235112224" path="wikiringlogo20x20.png"  version="1"}%

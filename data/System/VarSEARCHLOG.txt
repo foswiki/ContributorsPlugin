@@ -9,7 +9,7 @@
      | =from= | A time string like '10 Oct 2010' | =7days ago= |
      | =to= | A time string like '10 Oct 2010' | =time now= |
      | =header=, =footer=, =separator= | header and footer and separator as per %SYSTEMWEB%.FormattedSearch | no =header= or =footer= and =separator= defaults to =$n= |
-     | =format= | Format of revision information, see supported formatting tokens below | =| $time | $action | $webtopic [[%SCRIPTURL{view}%/$web/$topic?rev=$rev][Revision $rev]] | $user | $extra |= |
+     | =format= | Format of revision information, see supported formatting tokens below | =&#124; $time &#124; $action &#124; $webtopic [[%SCRIPTURL{view}%/$web/$topic?rev=$rev][Revision $rev]] &#124; $user &#124; $extra &#124;= |
      | =limit= | only show  a limited set of matching results, to avoid thrashing the web server (you can tune this for your circumstances) | 25 |
      | =reverse= | reverse the time order of the output set | =false= |
      | =showRepRev= | if "on", =save= repRev events (when a new revision is _not_ created because the same user edits the topic again withint the timeout period | =off= |
