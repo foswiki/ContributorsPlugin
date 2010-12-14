@@ -1,4 +1,11 @@
 # Release manifest for ContributorsPlugin
 data/System/ContributorsPlugin.txt 0644 Documentation
+data/System/VarCONTRIBUTORS.txt 0644 Documentation
+data/System/VarSEARCHLOG.txt 0644 Documentation
 lib/Foswiki/Plugins/ContributorsPlugin.pm 0644 Perl module
+lib/Foswiki/Plugins/ContributorsPlugin/Node.pm 0644 Perl module
+templates/view.contributorsplugin.tmpl 0644 add contributors to a topic to the bottom of the topic.
 
+#unit tests
+test/unit/ContributorsPlugin/ContributorsPluginTests.pm
+test/unit/ContributorsPlugin/ContributorsPluginSuite.pm

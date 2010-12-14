@@ -11,8 +11,19 @@ prefer.
 %TOC%
 
 ---++ Usage
+---+++ Contributors to a topic
+This plugin can be used to show a list of editors of a page. 
+The simplest way to add topic Contributor information to a topic, is to add =contributorsplugin= to the =SKIN= setting in %USERSWEB%.SitePreferences
 
----++ Examples
+<verbatim>
+   * Set SKIN=contributorsplugin,pattern
+</verbatim>
+
+%INCLUDE{%SYSTEMWEB%.VarCONTRIBUTORS}%
+%INCLUDE{%SYSTEMWEB%.VarSEARCHLOG}%
+
+__%ICON{alert}% WARNING:__ this plugin will display information from the logs to anyone, so will show the viewer who has done what.
+
 
 ---++ Installation Instructions
 
@@ -20,12 +31,15 @@ prefer.
 
 ---++ Info
 
-Many thanks to the following sponsors for supporting this work:
-   * Acknowledge any sponsors here
+Much credit goes to [[http://webfoot.com][Ducky Sherwood]] for creating the original version CONTRIBUTORS Plugin. 
+I've re-implemented it to use more current foswiki practices.
 
-|  Author(s): | |
-|  Copyright: | &copy; |
-|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+Built in Collaboration with:
+   * [[http://skyloom.com][Skyloom]]
+
+|  Author(s): | Foswiki:Main.SvenDowideit |
+|  Copyright: | 2010 &copy; Sven Dowideit [[http://fosiki.com][fosiki]] |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL 3 (Gnu General Public License)]] |
 |  Release: | %$RELEASE% |
 |  Version: | %$VERSION% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |

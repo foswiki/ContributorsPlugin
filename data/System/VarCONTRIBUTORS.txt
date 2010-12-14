@@ -1,0 +1,32 @@
+%META:TOPICINFO{author="ProjectContributor" date="1182547552" format="1.1" version="$Rev$"}%
+%META:TOPICPARENT{name="ContributorsPlugin"}%
+#VarCONTRIBUTORS
+---+++ CONTRIBUTORS { _attributes_ } -- list editors of a topic
+   * A =%<nop>CONTRIBUTORS%= without parameters shows a list of all revisions using the default =format=
+   * The following standard attributes are recognized
+     |  *Name* | *Description* | *Default* |
+     | =web=   | specify the web the topic is in if web is not set in the =topic= param | currently viewed web |
+     | =topic= | specify the =web.topic= to show the revision information for | currently viewed topic |
+     | =rev=   | specify a revision to begin counting down from | =most recent revision= |
+     | =last=  |  show the last N edits | =4= |
+     | =nodups= | if "on", suppresses duplicate lines, useful for showing a list of the authors (will only show the most recent change for each author) | =off= |
+     | =header=, =footer=, =separator= | header and footer and separator as per %SYSTEMWEB%.FormattedSearch | no =header= or =footer= and =separator= defaults to =$n= |
+     | =format= | Format of revision information, see supported formatting tokens below | =* $author -- [[%!SCRIPTURL{view}%/$web/$topic?rev=$rev][Revision $rev]] on date $date= |
+   * Supported formatting tokens (same as %SYSTEMWEB%.VarREVINFO):
+     | *Token:* | *Unit:* | *Example* |
+     | =$web= | Name of web | Current web |
+     | =$topic= | Topic name | Current topic |
+     | =$rev= | Revision number. Prefix =r1.= to get the usual =r1.5= format | =5= |
+     | =$username= | Login username of revision | =jsmith= |
+     | =$wikiname= | WikiName of revision | =JohnSmith= |
+     | =$wikiusername= | <nop>WikiName with %USERSWEB% web prefix | =%USERSWEB%.JohnSmith= |
+     | =$date= | Revision date. Actual date format defined as {DefaultDateFormat} in [[%SCRIPTURLPATH{"configure"}%][configure]] | =21 Sep 2006= |
+     | =$time= | Revision time | =23:24:25= |
+     | =$iso= | Revision date in ISO date format | =2006-09-22T06:24:25Z= |
+     | =$min=, =$sec=, etc. | Same date format qualifiers as [[%IF{"'%INCLUDINGTOPIC%'='Macros'" then="#"}%VarGMTIME][GMTIME{"format"}]] | |
+   * EXAMPLE:
+      * Show all the authors who edited =Main.WebHome= between revision r25 and r15
+      * %<nop>CONTRIBUTORS{topic="Main.WebHome" rev="1.25" last="10" format="   * $author" header="Authors from rev 1.15 to 1.25:" nodups="on"}%
+   * The output of the the CONTRIBUTORs Macro is quite disk IO intensive, so the result is cached in the Plugins =work_area=
+     
+   * See ContributorsPlugin for more information
