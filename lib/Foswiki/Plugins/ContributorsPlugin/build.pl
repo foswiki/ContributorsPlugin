@@ -6,5 +6,5 @@ use Foswiki::Contrib::Build;
 $build = new Foswiki::Contrib::Build('ContributorsPlugin');
 
 # Build the target on the command line, or the default target
-$build->build($build->{target});
+$build->build( $build->{target} );
 
