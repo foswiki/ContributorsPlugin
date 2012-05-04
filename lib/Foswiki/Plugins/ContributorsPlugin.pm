@@ -54,7 +54,7 @@ sub _CONTRIBUTORS {
     my $header    = $params->{header};
     my $footer    = $params->{footer};
     my $separator = $params->{separator};
-    $separator = '$n' unless (defined($separator));
+    $separator = '$n' unless ( defined($separator) );
 
     #TODO: move into tmpl file too
     my $format = $params->{format}
@@ -89,13 +89,14 @@ sub _CONTRIBUTORS {
     );
     my $cached = getFromCache( $hash, $showWeb, $showTopic, $startVersion );
     return $cached if ( defined($cached) );
-    
-    my $newRev; #Item9969: there's a really frustrating issue where the ,v file can be created using the wrong meta:info, so the value returned by getRevisionInfo != $rev--
+
+    my $newRev
+      ; #Item9969: there's a really frustrating issue where the ,v file can be created using the wrong meta:info, so the value returned by getRevisionInfo != $rev--
 
     while ( $showLast > 0 ) {
         $showLast--;
 
-        #print STDERR "---- $showWeb, $showTopic , $revDate, $author, $rev, $comment\n";
+#print STDERR "---- $showWeb, $showTopic , $revDate, $author, $rev, $comment\n";
         if ( ( not $nodups ) or ( not defined $dupHash{$author} ) ) {
             $dupHash{$author} = $rev;
             push( @result,
@@ -113,22 +114,28 @@ sub _CONTRIBUTORS {
         last if ( $rev <= 0 );
         ( $topicObject, $text ) =
           Foswiki::Func::readTopic( $showWeb, $showTopic, $rev );
-        ( $revDate, $author, $newRev, $comment ) = $topicObject->getRevisionInfo();
+        ( $revDate, $author, $newRev, $comment ) =
+          $topicObject->getRevisionInfo();
     }
-    
 
     $footer = '' unless ( defined($footer) );
 
-    return addToCache( $hash, $showWeb, $showTopic, $startVersion,
-        Foswiki::expandStandardEscapes( $header.join( $separator, @result ).$footer ) );
+    return addToCache(
+        $hash, $showWeb,
+        $showTopic,
+        $startVersion,
+        Foswiki::expandStandardEscapes(
+            $header . join( $separator, @result ) . $footer
+        )
+    );
 }
 
 sub _SEARCHLOG {
     my ( $session, $params, $topic, $web, $viewedTopicObject ) = @_;
 
-    my $filter = $params->{_DEFAULT} || '1';
-    my $reverse = Foswiki::isTrue($params->{reverse});
-    my $showRepRev = Foswiki::isTrue($params->{showRepRev});
+    my $filter     = $params->{_DEFAULT} || '1';
+    my $reverse    = Foswiki::isTrue( $params->{reverse} );
+    my $showRepRev = Foswiki::isTrue( $params->{showRepRev} );
 
     my $query =
       Foswiki::Plugins::ContributorsPlugin::Parser::parseLogFilter( $filter,
@@ -137,12 +144,15 @@ sub _SEARCHLOG {
       if ( not defined($query) );
 
     my $separator = $params->{separator};
-    $separator = '$n' unless (defined($separator));
+    $separator = '$n' unless ( defined($separator) );
 
     my $header = $params->{header};
-    $header = '| *Date* | *Action* | *Topic* | *User* | *Extra* |' unless defined($header);
+    $header = '| *Date* | *Action* | *Topic* | *User* | *Extra* |'
+      unless defined($header);
     my $format = $params->{format};
-    $format = '| $time | $action | $webtopic [[%SCRIPTURL{view}%/$web/$topic?rev=$rev][Revision $rev]] | $user | $extra |' unless defined($format);
+    $format =
+'| $time | $action | $webtopic [[%SCRIPTURL{view}%/$web/$topic?rev=$rev][Revision $rev]] | $user | $extra |'
+      unless defined($format);
     my $footer = $params->{footer};
     $footer = '||||| $from to $last |' unless defined($footer);
 
@@ -209,18 +219,22 @@ sub _SEARCHLOG {
         }
 
         my $line = $format;
-        if ($line =~ /\$(web|topic|rev)/ ) {
-            my ($web, $topic) = Foswiki::Func::normalizeWebTopicName('', $webTopic);
+        if ( $line =~ /\$(web|topic|rev)/ ) {
+            my ( $web, $topic ) =
+              Foswiki::Func::normalizeWebTopicName( '', $webTopic );
             $line =~ s/\$web/$web/g;
             $line =~ s/\$topic/$topic/g;
-            if ($line =~ /\$rev/ ) {
-                my $revision = Foswiki::Func::getRevisionAtTime( $web, $topic, $time );
-                if (!$showRepRev) {
-                    #WATCHOUT. reprev comments are somewhat confusing 
-                    $extra = '' if ($extra =~ /^repRev (\d*).*$/);
-                    next if (!defined($revision)); 
-                    my ( $TESTdate, $TESTuser, $TESTrev, $TESTcomment ) = Foswiki::Func::getRevisionInfo($web, $topic, $revision );
-                    next if ($TESTdate != $time);
+            if ( $line =~ /\$rev/ ) {
+                my $revision =
+                  Foswiki::Func::getRevisionAtTime( $web, $topic, $time );
+                if ( !$showRepRev ) {
+
+                    #WATCHOUT. reprev comments are somewhat confusing
+                    $extra = '' if ( $extra =~ /^repRev (\d*).*$/ );
+                    next if ( !defined($revision) );
+                    my ( $TESTdate, $TESTuser, $TESTrev, $TESTcomment ) =
+                      Foswiki::Func::getRevisionInfo( $web, $topic, $revision );
+                    next if ( $TESTdate != $time );
                 }
                 $line =~ s/\$rev/$revision/ge;
             }
@@ -247,7 +261,8 @@ sub _SEARCHLOG {
         }
         if ($reverse) {
             unshift( @result, $line );
-        } else {
+        }
+        else {
             push( @result, $line );
         }
 
@@ -285,7 +300,8 @@ sub _SEARCHLOG {
         $footer =~ s/\$to/Foswiki::Time::formatTime($to)/ge;
         $footer =~ s/\$last/Foswiki::Time::formatTime($time)/ge;
     }
-    return Foswiki::expandStandardEscapes( $header.join( $separator, @result ).$footer );
+    return Foswiki::expandStandardEscapes(
+        $header . join( $separator, @result ) . $footer );
 }
 
 ##########################################################################
