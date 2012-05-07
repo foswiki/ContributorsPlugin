@@ -3,9 +3,9 @@ package ContributorsPluginSuite;
 use Unit::TestSuite;
 our @ISA = qw( Unit::TestSuite );
 
-sub name { 'ContributorsPluginSuite' }
+sub name { 'ContributorsPluginSuite' };
 
-sub include_tests { qw(ContributorsPluginTests) }
+sub include_tests { qw(ContributorsPluginTests) };
 
 1;
 __END__

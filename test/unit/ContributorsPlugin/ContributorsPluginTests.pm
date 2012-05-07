@@ -75,8 +75,8 @@ sub testUserQuery_EQ {
             addr     => '192.168.1.21'
         )
     );
-    $self->assert(
-        not $query->evaluate(
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('20 Oct 2010'),
             user     => 'OtherUser',
             action   => 'save',
@@ -101,8 +101,8 @@ sub testActionQuery_EQ {
             addr     => '192.168.1.21'
         )
     );
-    $self->assert(
-        not $query->evaluate(
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('20 Oct 2010'),
             user     => 'OtherUser',
             action   => 'view',
@@ -113,14 +113,15 @@ sub testActionQuery_EQ {
     );
 }
 
+
 sub testTimeQuery_GT_LT {
     my $self = shift;
 
-    my $query =
-      parseLogFilter( "d2n('05 Oct 2010') < time AND time < d2n('20 Oct 2010')",
-        {} );
-    $self->assert(
-        not $query->evaluate(
+    my $query = parseLogFilter(
+        "d2n('05 Oct 2010') < time AND time < d2n('20 Oct 2010')", {}
+    );
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('04 Oct 2010'),
             user     => 'AdminUser',
             action   => 'save',
@@ -160,8 +161,8 @@ sub testTimeQuery_GT_LT {
             addr     => '192.168.1.21'
         )
     );
-    $self->assert(
-        not $query->evaluate(
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('20 Oct 2010'),
             user     => 'OtherUser',
             action   => 'save',
@@ -170,8 +171,8 @@ sub testTimeQuery_GT_LT {
             addr     => '192.168.1.21'
         )
     );
-    $self->assert(
-        not $query->evaluate(
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('21 Oct 2010'),
             user     => 'OtherUser',
             action   => 'save',
@@ -186,9 +187,10 @@ sub testTimeQuery_GTEQ_LTEQ {
     my $self = shift;
 
     my $query = parseLogFilter(
-        "d2n('05 Oct 2010') <= time AND time <= d2n('20 Oct 2010')", {} );
-    $self->assert(
-        not $query->evaluate(
+        "d2n('05 Oct 2010') <= time AND time <= d2n('20 Oct 2010')", {}
+    );
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('04 Oct 2010'),
             user     => 'AdminUser',
             action   => 'save',
@@ -228,8 +230,8 @@ sub testTimeQuery_GTEQ_LTEQ {
             addr     => '192.168.1.21'
         )
     );
-    $self->assert(
-        not $query->evaluate(
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('20 Oct 2010'),
             user     => 'OtherUser',
             action   => 'save',
@@ -238,8 +240,8 @@ sub testTimeQuery_GTEQ_LTEQ {
             addr     => '192.168.1.21'
         )
     );
-    $self->assert(
-        not $query->evaluate(
+    $self->assert(not
+        $query->evaluate(
             time     => Foswiki::Time::parseTime('21 Oct 2010'),
             user     => 'OtherUser',
             action   => 'save',
@@ -249,6 +251,7 @@ sub testTimeQuery_GTEQ_LTEQ {
         )
     );
 }
+
 
 1;
 __END__
